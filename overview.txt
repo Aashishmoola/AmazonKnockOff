@@ -1,1 +1,14 @@
-This is some example text. banana
+How to pull, edit and push repo to github:
+1. Create and switch to a new branch locally
+    git switch -c new_branch_name
+2. Pull (combination of fetch and merge (to local branch)) from remote repo (Github) 
+    git pull origin main
+3. Stage files (if necessary)
+    git add filename
+4. Commit staged files 
+    git commit -m "Add commit message here" 
+    git commit -a -m "Add commit message here" (If want to skip stagimg process)
+5. Push to remote repo 
+    git push origin main
+6. Create a pull request on Github
+    Github will handle merging branches in remote repo
