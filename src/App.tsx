@@ -7,7 +7,6 @@ import { HomePage } from "./pages/homePage";
 import { ErrorPage } from "./pages/errorPage";
 import { ExampleProduct } from "./pages/exampleProductPage";
 
-
 export function App() {
   return (
     <>

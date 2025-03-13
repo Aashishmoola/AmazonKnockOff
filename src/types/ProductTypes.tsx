@@ -1,4 +1,7 @@
-export interface Product {
+export {type ProductPropsType, type ProductDataType}
+  
+  
+  interface ProductDataType {
     id: number;
     title: string;
     price: number;
@@ -10,3 +13,7 @@ export interface Product {
       count: number;
     };
   }
+
+  type ProductPropsType = {
+    productData: ProductDataType;
+  };

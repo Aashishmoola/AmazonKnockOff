@@ -12,3 +12,5 @@ How to pull, edit and push repo to github:
     git push origin main
 6. Create a pull request on Github
     Github will handle merging branches in remote repo
+
+
