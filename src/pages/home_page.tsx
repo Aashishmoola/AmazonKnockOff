@@ -1,20 +1,15 @@
-import { useEffect, useState } from "react";
-import { getAllProductDataFromLS, setAllProductDataToLS, clearAllProductDatainLS } from "../data/productData";
-import { defaultHomeBgImg } from "../data/defaultHomeBgImg";
+import { useState } from "react";
+import { getDataFromLS } from "../data_functions/productData";
+
+import { defaultHomeBgImg } from "../data/images/defaultHomeBgImg";
 import { Product } from "../components/product";
+import { ProductDataType } from "../types/ProductTypes";
 
 export function HomePage() {
-  const MAX_DISP_PRODUCTS = 8
+  const MAX_DISP_PRODUCTS = 8;
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [refreshLS, setRefreshLS] = useState(false);
 
-  useEffect(() => {
-    setAllProductDataToLS()
-    return () => {
-      clearAllProductDatainLS()
-    }
-  }, [refreshLS]);
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -55,13 +50,15 @@ export function HomePage() {
 
       {/* Products Section */}
       <section className="flex-1 bg-gradient-to-b from-transparent via-gray-50 to-gray-100 relative z-10 md:-mt-32">
-          <div className="container mx-auto pt-4 md:pt-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
-              {getAllProductDataFromLS().slice(0, MAX_DISP_PRODUCTS).map((product) => (
+        <div className="container mx-auto pt-4 md:pt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
+            {getDataFromLS("allProductData")
+              .slice(0, MAX_DISP_PRODUCTS)
+              .map((product: ProductDataType) => (
                 <Product key={product.id} productData={product} />
               ))}
-            </div>
           </div>
+        </div>
       </section>
     </main>
   );

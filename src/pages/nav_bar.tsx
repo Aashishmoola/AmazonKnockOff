@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { getDataFromLS } from "../data_functions/productData";
+import {reformatString} from "../helper_functions"
+
 export function NavBar() {
   return (
     <div>
@@ -34,21 +37,23 @@ export function NavBar() {
         </div>
       </header>
       <nav className="flex items-center bg-[#232f3e] text-white text-sm w-full ">
-        <div className="flex w-full justify-between p-2 px-4 pl-6">
+        <div className="flex w-full justify-around p-2 px-4 pl-6">
           <Link to="/products/all">
             <p className="link">All</p>
           </Link>
-          <p className="link">Fresh and Fast</p>
-          <p className="link">Best Sellers</p>
-          <p className="link">Today's Deals</p>
-          <p className="link hidden lg:inline-flex">Electronics</p>
-          <p className="link hidden lg:inline-flex">Food & Grocery</p>
-          <p className="link hidden lg:inline-flex">Prime</p>
-          <p className="link hidden lg:inline-flex">Buy Again</p>
-          <p className="link hidden lg:inline-flex">Shopper Toolkit</p>
-          <p className="link hidden lg:inline-flex">Health & Personal Care</p>
+          {getDataFromLS("allProductCategories").map(
+            (productCategory: string) => {
+              return (
+                <p className="Link" key={productCategory}>
+                  {reformatString(productCategory)}
+                </p>
+              );
+            }
+          )}
         </div>
       </nav>
     </div>
   );
 }
+
+
