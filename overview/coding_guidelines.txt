@@ -11,3 +11,5 @@ General styling guidelines
 Common coding Errors
     1. UseState is used only when a rerendering of dispayed components is needed
     2. UseEffect is only intended for handling SideEffects (data fetching, data logging)
+    3. Poorly handling async conditions 
+        -lead to race conditions

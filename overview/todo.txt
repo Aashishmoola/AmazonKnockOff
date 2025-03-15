@@ -13,8 +13,8 @@ MicroTasks (Near term)
     To Do:
 
     1. Categorise products: Aash
-        -Inpsect JSON data from fakeStore API
-        -Create filtering functions based on category
+        -Inpsect JSON data from fakeStore API (Done)
+        -Create filtering functions based on category (Done)
         -Route Subheaders to category page
 
     2. Toggle to expand description of products: WF
