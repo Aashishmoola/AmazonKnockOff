@@ -1,0 +1,42 @@
+Track ToDo Items here:
+Use GitHub to Track Bug Fixes that need coordination and status on redoing PullRequest after reading review
+Format: 
+
+No. TaskHeading (Additional description): AssignedPerson: SoftCompleteDate
+    -SubTask1
+    -SubTask2
+    .
+    .
+
+
+MicroTasks (Near term)
+    To Do:
+
+    1. Categorise products: Aash
+        -Inpsect JSON data from fakeStore API (Done)
+        -Create filtering functions based on category (Done)
+        -Route Subheaders to category page
+
+    2. Toggle to expand description of products: WF
+    3. Fix HomePage abrupt color shift: WF
+    4. Use CSS grid, autoFit to make products rezise to fit window size: WF
+    In Progress:
+
+    Completed:
+
+Macrotasks (Future)
+    To Do:
+
+    In Progress:
+
+    Completed:
+
+
+Configuration: 
+    To Do:
+    1. Configure EsLint with TypeScript
+    2. Configure Prettier 
+
+    In Progress:
+
+    Completed:

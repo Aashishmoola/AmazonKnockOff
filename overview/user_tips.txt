@@ -1,0 +1,35 @@
+How to pull, edit and push repo to github:
+1. Pull (combination of fetch and merge (to local main branch)) from remote repo (Github) 's main branch
+    git pull origin main (while on main branch)
+2. Create and switch to a new feature branch locally
+    git switch -c new_branch_name
+3. Stage files (if necessary)
+    git add filename
+4. Commit staged files 
+    git commit -m "Add commit message here" 
+    git commit -a -m "Add commit message here" (If want to skip staging process)
+5. Push to remote repo 
+    git push origin working_branch_name (NOT main)
+6. Create a pull request on Github
+    Github will handle merging working_branch to main in remote repo
+7. Repeat steps 2-5 if working on same feature/branch
+    Do not pull from main into local working branch ever
+
+Common errors while using git with github:
+1. Working directly on local main instead of local feature branches
+    -can't work on multiple feature at the same time
+    -can't revert to local backup
+    -commit history cotains commits of many features, difficult to parse through
+2. Not updating local main before creating new branches 
+    -using outdated code to work on new edits
+3. Creating branches from local branches when not necessary (creating subfeature branch on a feauture branch)
+    -using outdated code to work on new edits
+    -merging and handling merge conflicts gets more complex as branches are getting nested more than 1 level
+4. Pushing directly to main 
+    -code will not be reviewed, tested as it breaks development pipeline
+    -may lead to unnecessary merge conflicts
+5. Working in /naming branches something irrevelant to feature being worked on/ working on all features on single branch
+    - harder to track feature development status
+    - does not allow multiple people to work to feature branch simultaneously
+
+Search on copilot for Recovery Steps

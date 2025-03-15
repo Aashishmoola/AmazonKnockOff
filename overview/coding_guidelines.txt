@@ -1,0 +1,15 @@
+General styling guidelines
+    1. Always write hardcoded constants in CAPS to dintinguish form codeActionsOnSave
+    2. When refrerring to react components, must capitalise component name, else starts with lowercase
+        Ex: productData ( data relating to product), Product (Component), ProductPropsType(Type to check props in Product)
+    3. Name files in snake_case and items within code to be camelCase
+    4. Component file name must match the component being exported in the file
+    5. Each file can only export 1 Component
+    6. Each function should have max of 10 lines while ideally having around 5, to ease debugging (find error source) and encapulate logic easily
+    
+
+Common coding Errors
+    1. UseState is used only when a rerendering of dispayed components is needed
+    2. UseEffect is only intended for handling SideEffects (data fetching, data logging)
+    3. Poorly handling async conditions 
+        -lead to race conditions
