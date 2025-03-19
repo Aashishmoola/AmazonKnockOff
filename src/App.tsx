@@ -8,13 +8,14 @@ import { LoginPage } from "./pages/login_page";
 import { ShoppingCartPage, DisplaySubPage } from "./pages/shopping_cart_page";
 import { HomePage } from "./pages/home_page";
 import { ErrorPage } from "./pages/backup_error_page";
-import { AllProducts } from "./pages/category_subpages/all_products";
+import { ProductCategorySubpage } from "./pages/product/product_category_subpage";
+import { ProductPage } from "./pages/product/product_page.tsx"
 
 export function App() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   async function initializeAllProductData() {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       console.log("Initializing data from Fake Store API to Local Storage...");
       await setAllDataToLS();
@@ -22,19 +23,21 @@ export function App() {
     } catch (error) {
       console.error("Failed to intialize data:", error);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
+  }
+
+  function cleanUpProductData() {
+    console.log("Clearing Local Storage");
+    clearAllDataInLS();
   }
 
   useEffect(() => {
     initializeAllProductData();
-    return () => {
-      console.log("Clearing Local Storage");
-      clearAllDataInLS();
-    };
+    return cleanUpProductData;
   }, []);
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <>
@@ -42,8 +45,8 @@ export function App() {
       <Routes>
         {/* Default route */}
         <Route index element={<HomePage />} />
-        <Route path="products">
-          <Route path="all" element={<AllProducts />} />
+        <Route path="products/" element={<ProductPage/>}>
+          <Route path=":productSubCategory" element={<ProductCategorySubpage/>}/>
         </Route>
         <Route path="/loginPage" element={<LoginPage />} />
         {/* Just for testing dynamic routing (dynamically changing components based on path) */}

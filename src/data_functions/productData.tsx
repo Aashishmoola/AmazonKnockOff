@@ -35,7 +35,7 @@ async function setAllDataToLS() {
   localStorage.setItem("allProductData", JSON.stringify(allProductData))
 }
 
-function getDataFromLS(dataName: dataLSType){ // Use type generics for returning corrcet respective data type
+function getDataFromLS(dataName: dataLSType){ // Use type generics for returning correct respective data type
   // getItem returns string|null (if not found), so type narrowing is needed as JSON.parse only accepts type string
   const allProductDataJSON = localStorage.getItem(dataName)
   if (!allProductDataJSON) throw new Error(`${dataName} is not set in Local Storage`)

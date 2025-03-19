@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { getDataFromLS } from "../data_functions/productData";
-import {reformatString} from "../helper_functions"
+import { reformatString, reformatStringForURL } from "../helper_functions";
+
 
 export function NavBar() {
   return (
@@ -38,15 +39,15 @@ export function NavBar() {
       </header>
       <nav className="flex items-center bg-[#232f3e] text-white text-sm w-full ">
         <div className="flex w-full justify-around p-2 px-4 pl-6">
-          <Link to="/products/all">
+          <Link to="products/all">
             <p className="link">All</p>
           </Link>
           {getDataFromLS("allProductCategories").map(
             (productCategory: string) => {
               return (
-                <p className="Link" key={productCategory}>
-                  {reformatString(productCategory)}
-                </p>
+                <Link to={`products/${reformatStringForURL(productCategory)}`} key={productCategory}>
+                  <p className="Link">{reformatString(productCategory, " ")}</p>
+                </Link>
               );
             }
           )}
@@ -55,5 +56,3 @@ export function NavBar() {
     </div>
   );
 }
-
-
