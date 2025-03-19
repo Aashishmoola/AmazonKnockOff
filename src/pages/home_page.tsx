@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getDataFromLS } from "../data_functions/productData";
+import { getDataFromLS } from "../data_functions/product_data_fetching";
 
 import { defaultHomeBgImg } from "../data/images/defaultHomeBgImg";
 import { Product } from "../components/product";
@@ -9,7 +9,6 @@ export function HomePage() {
   const MAX_DISP_PRODUCTS = 8;
 
   const [currentIndex, setCurrentIndex] = useState(0);
-
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -55,7 +54,11 @@ export function HomePage() {
             {getDataFromLS("allProductData")
               .slice(0, MAX_DISP_PRODUCTS)
               .map((product: ProductDataType) => (
-                <Product key={product.id} productData={product} />
+                <Product
+                  key={product.id}
+                  productData={product}
+                  isPreview={true}
+                />
               ))}
           </div>
         </div>
