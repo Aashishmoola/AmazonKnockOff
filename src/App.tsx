@@ -9,6 +9,7 @@ import { ShoppingCartPage, DisplaySubPage } from "./pages/shopping_cart_page";
 import { HomePage } from "./pages/home_page";
 import { ErrorPage } from "./pages/backup_error_page";
 import { AllProducts } from "./pages/category_subpages/all_products";
+import { CategoryProducts } from "./pages/category_subpages/category_products";
 
 export function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -44,6 +45,7 @@ export function App() {
         <Route index element={<HomePage />} />
         <Route path="products">
           <Route path="all" element={<AllProducts />} />
+          <Route path=":category" element={<CategoryProducts/>} />
         </Route>
         <Route path="/loginPage" element={<LoginPage />} />
         {/* Just for testing dynamic routing (dynamically changing components based on path) */}
