@@ -37,20 +37,22 @@ export function NavBar() {
         </div>
       </header>
       <nav className="flex items-center bg-[#232f3e] text-white text-sm w-full ">
-        <div className="flex w-full justify-around p-2 px-4 pl-6">
+        <button className="flex w-full justify-around p-2 px-4 pl-6">
           <Link to="/products/all">
-            <p className="link">All</p>
+            <p className="link hover:text-blue-400">All</p>
           </Link>
           {getDataFromLS("allProductCategories").map(
-            (productCategory: string) => {
-              return (
-                <p className="Link" key={productCategory}>
-                  {reformatString(productCategory)}
-                </p>
-              );
-            }
+            (productCategory: string) =>(
+              <Link 
+              to={`/products/${encodeURIComponent(productCategory.toLowerCase())}`} 
+              key={productCategory}
+              className="link hover:text-blue-400"
+              >
+              <p>{reformatString(productCategory)}</p>
+            </Link>
+            )
           )}
-        </div>
+        </button>
       </nav>
     </div>
   );
